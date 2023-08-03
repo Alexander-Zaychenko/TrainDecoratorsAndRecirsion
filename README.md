@@ -1,4 +1,4 @@
-# TrainDecoratorsAndRecirsio
+# TrainDecoratorsAndRecursion
 
 ## Decorator tasks:
 Задача 1:
