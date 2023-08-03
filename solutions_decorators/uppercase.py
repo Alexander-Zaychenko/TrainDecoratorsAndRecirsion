@@ -5,10 +5,3 @@ def uppercase(func):
 
         return result
     return inner
-
-@uppercase
-def create_str():
-    print('adsdasdsad')
-
-
-create_str()
