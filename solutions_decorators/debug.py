@@ -5,4 +5,4 @@ def debug(func):
         result = func(*args, **kwargs)
         print("Результат:", result)
         return result
-    return wrapper
+    return inner
