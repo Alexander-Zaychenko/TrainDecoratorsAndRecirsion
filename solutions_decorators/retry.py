@@ -1,12 +1,12 @@
 def retry(times=3):
     def decorator(func):
-        count = 0
+        count = 1
         def inner(*args, **kwagrs):
             nonlocal count
             try:
                 result = func(*args, **kwagrs)
             except Exception as e:
-                if count <= times:
+                if count < times:
                     count += 1
                     return inner(*args, **kwagrs)
                 return e
