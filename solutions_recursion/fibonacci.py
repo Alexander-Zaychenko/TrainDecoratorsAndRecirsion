@@ -1,3 +1,19 @@
+import time
+
+def timer(func):
+    def inner(*args, **kwargs):
+        start_time = time.monotonic()
+        print(f'Start at: {start_time}')
+        result = func(*args, **kwargs)
+        end_time = time.monotonic()
+        print(f'End at: {end_time}')
+        complete_time = end_time - start_time
+        print(f'Complete time: {complete_time}')
+
+        return result
+    return inner
+
+
 def fibonacci(n):
     # check low nums
     if n < 0:
@@ -10,6 +26,7 @@ def fibonacci(n):
     return fibonacci(n - 1) + fibonacci(n - 2)
 
 
+@timer
 def test_fibonacci():
     print('Testing... ')
     # start test
