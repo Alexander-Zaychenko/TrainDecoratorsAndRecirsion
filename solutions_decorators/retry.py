@@ -13,3 +13,10 @@ def retry(times=3):
             return result
         return inner
     return decorator
+
+
+@retry(times=4)
+def function():
+    print('hi')
+
+function()

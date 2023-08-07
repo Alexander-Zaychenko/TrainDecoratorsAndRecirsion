@@ -12,3 +12,10 @@ def timer(func):
 
         return result
     return inner
+
+# how to test that?
+
+@timer
+def function():
+    time.sleep(2)
+    # result must be ~2 secs
