@@ -1,6 +1,15 @@
-def retry(func, times):
-    def inner(*args, **kwagrs):
-        for i in range(times):
-            func()
-        return times
-    return inner
+def retry(times=3):
+    def decorator(func):
+        count = 0
+        def inner(*args, **kwagrs):
+            nonlocal count
+            try:
+                result = func(*args, **kwagrs)
+            except Exception as e:
+                if count <= times:
+                    count += 1
+                    return inner(*args, **kwagrs)
+                return e
+            return result
+        return inner
+    return decorator
